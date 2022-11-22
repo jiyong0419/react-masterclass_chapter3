@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 interface ICircle {
   bgColor: string;
+  borderColor?: string;
 }
 
 interface IContainer {
   bgColor: string;
+  borderColor: string;
 }
 
 const Container = styled.div<IContainer>`
@@ -13,10 +15,11 @@ const Container = styled.div<IContainer>`
   height: 100px;
   border-radius: 50%;
   background-color: ${(props) => props.bgColor};
+  border: 5px solid ${(props) => props.borderColor};
 `;
 
-function Circle({ bgColor }: ICircle) {
-  return <Container bgColor={bgColor} />;
+function Circle({ bgColor, borderColor }: ICircle) {
+  return <Container bgColor={bgColor} borderColor={borderColor ?? bgColor} />;
 }
 
 export default Circle;
