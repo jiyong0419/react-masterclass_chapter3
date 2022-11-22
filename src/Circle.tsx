@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 interface ICircle {
@@ -19,6 +20,7 @@ const Container = styled.div<IContainer>`
 `;
 
 function Circle({ bgColor, borderColor }: ICircle) {
+  const [value, setValue] = useState<string | number>(1);
   return <Container bgColor={bgColor} borderColor={borderColor ?? bgColor} />;
 }
 
